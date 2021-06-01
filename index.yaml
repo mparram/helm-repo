@@ -1,0 +1,77 @@
+apiVersion: v1
+entries:
+  dependencies-v1:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2021-06-01T17:04:27.518138729Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.7.17
+    description: Chart to test dependencies
+    digest: b02fb693b99142d98799a9bd031c617f5a591aff54aa7d179130728765558e27
+    home: https://github.com/helm/charts-repo-actions-demo
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: dependencies-v1
+    sources:
+    - https://github.com/helm/charts-repo-actions-demo
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/dependencies-v1-0.1.8/dependencies-v1-0.1.8.tgz
+    version: 0.1.8
+  dependencies-v2:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-06-01T17:04:27.632434208Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.7.17
+    description: Chart to test dependencies
+    digest: de853627e618458b756446a4521de5d07fe5d55a6487eea14c44eb9a370bc9e7
+    home: https://github.com/helm/charts-repo-actions-demo
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: dependencies-v2
+    sources:
+    - https://github.com/helm/charts-repo-actions-demo
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/dependencies-v2-0.1.8/dependencies-v2-0.1.8.tgz
+    version: 0.1.8
+  example-v1:
+  - apiVersion: v1
+    appVersion: "3.9"
+    created: "2021-06-01T17:04:27.743595052Z"
+    description: Deploy a basic Alpine Linux pod
+    digest: 2b86514f127ea6f1b323f3d4c9c43ed443902b3411b01c1f50e1ff6a19e748c2
+    home: https://helm.sh/helm
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: example-v1
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/example-v1-0.1.11/example-v1-0.1.11.tgz
+    version: 0.1.11
+  example-v2:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-06-01T17:04:27.863231191Z"
+    description: A Helm chart for Kubernetes
+    digest: df5ea3f0115c092984965fac90018848b21b2bf2c1a9bb6cd49abab5db927f05
+    home: https://helm.sh/helm
+    maintainers:
+    - email: email@example.com
+      name: Name
+    name: example-v2
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/example-v2-0.2.7/example-v2-0.2.7.tgz
+    version: 0.2.7
+generated: "2021-06-01T17:04:27.863235891Z"
