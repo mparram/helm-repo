@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mongodb
-  namespace: {{ .Values.mongo.namespace }}
 spec:
   ports:
     - name: 27017-tcp

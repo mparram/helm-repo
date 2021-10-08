@@ -1,0 +1,17 @@
+apiVersion: broker.amq.io/v2alpha4
+kind: ActiveMQArtemis
+metadata:
+  name: {{ .Values.amqbroker.brokerName }}
+  application: {{ .Values.amqbroker.brokerName }}
+spec:
+  adminPassword: {{ .Values.amqbroker.adminPassword }}
+  deploymentPlan:
+    size: {{ .Values.amqbroker.size }}
+    persistenceEnabled: false
+    requireLogin: false
+    messageMigration: false
+    managementRBACEnabled: true
+    journalType: nio
+    jolokiaAgentEnabled: false
+    image: placeholder
+  adminUser: {{ .Values.amqbroker.adminUser }}

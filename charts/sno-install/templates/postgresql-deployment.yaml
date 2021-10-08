@@ -1,53 +1,51 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mongodb
-  namespace: {{ .Values.mongo.namespace }}
+  name: postgresql
   labels:
-    app: mongodb
+    app: postgresql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      app: postgresql
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: mongodb
-        deploymentconfig: mongodb
+        app: postgresql
+        deploymentconfig: postgresql
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
     spec:
       restartPolicy: Always
-      serviceAccountName: mongodb
+      serviceAccountName: postgresql
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
       securityContext:
-        runAsUser: 0
+        runAsUser: 1000
       containers:
-        - resources:
-            limits:
-              cpu: 500m
-              memory: 2Gi
+        - resources: {}
           terminationMessagePath: /dev/termination-log
-          name: mongodb
+          name: postgresql
           ports:
-            - containerPort: 27017
+            - containerPort: 5432
               protocol: TCP
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: mongodb-1
-              mountPath: /var/lib/mongodb/data
+            - name: postgresql-1
+              mountPath: /var/lib/pgsql/data
           terminationMessagePolicy: File
           envFrom:
             - secretRef:
-                name: mongodb
+                name: postgresql
           image: >-
-            registry.redhat.io/rhscl/mongodb-36-rhel7@sha256:8dc9932eabd30f2ee4d0b882500c65b48f3c2fbbd85bfd51d0d18410af404a39
-      serviceAccount: mongodb
+            registry.redhat.io/rhscl/postgresql-12-rhel7@sha256:e0c8dbecd0b6bdc345742b5bca7b62ad39173d38f019b8c6d54b32a23074fcff
+      serviceAccount: postgresql
       volumes:
-        - name: mongodb-1
+        - name: postgresql-1
           persistentVolumeClaim:
-            claimName: mongodb-pvc
+            claimName: postgresql-pvc
       dnsPolicy: ClusterFirst
   strategy:
     type: RollingUpdate

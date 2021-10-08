@@ -1,12 +1,11 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: 'system:openshift:scc:privileged'
-  namespace: {{ .Values.mongo.namespace }}
+  name: postgresql-privileged
 subjects:
   - kind: ServiceAccount
-    name: mongodb
-    namespace: {{ .Values.mongo.namespace }}
+    name: postgresql
+    namespace: {{ .Release.Namespace }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: postgresql
-  namespace: {{ .Values.postgresql.namespace }}
 spec:
   ports:
     - name: postgresql

@@ -1,0 +1,11 @@
+name: manufacturing-comp-factory-sno-pre-install
+amqbroker:
+  startingCSV: amq-broker-operator.v7.8.1-opr-3
+gitops:
+  startingCSV: openshift-gitops-operator.v1.2.1
+mongo:
+  path: "/mnt/hpvolumes/mongodb"
+  storageCapacity: 5Gi
+postgresql:
+  path: "/mnt/hpvolumes/postgresql"
+  storageCapacity: 5Gi
