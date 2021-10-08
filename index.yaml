@@ -74,6 +74,28 @@ entries:
     urls:
     - https://github.com/mparram/helm-repo/releases/download/example-v2-0.2.7/example-v2-0.2.7.tgz
     version: 0.2.7
+  manufacturing-comp-factory-sno-install:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-10-08T12:08:40.31275453Z"
+    description: Helm chart to deploy factory components to SNO
+    digest: cf0bbab3e0705235d09bd17a1d17128a0d2f6466522aec325ab3b8c2bc3acb1d
+    name: manufacturing-comp-factory-sno-install
+    type: application
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/manufacturing-comp-factory-sno-install-0.0.1/manufacturing-comp-factory-sno-install-0.0.1.tgz
+    version: 0.0.1
+  manufacturing-comp-factory-sno-pre-install:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-10-08T12:08:40.537185186Z"
+    description: Helm chart to deploy factory components to SNO
+    digest: 22d63dfecf7aaaa1451f6dab658de36cd8af51134645b888181039715087f876
+    name: manufacturing-comp-factory-sno-pre-install
+    type: application
+    urls:
+    - https://github.com/mparram/helm-repo/releases/download/manufacturing-comp-factory-sno-pre-install-0.0.1/manufacturing-comp-factory-sno-pre-install-0.0.1.tgz
+    version: 0.0.1
   sno-helm-charts:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -85,4 +107,4 @@ entries:
     urls:
     - https://github.com/mparram/helm-repo/releases/download/sno-helm-charts-0.0.1/sno-helm-charts-0.0.1.tgz
     version: 0.0.1
-generated: "2021-10-08T07:28:49.202881824Z"
+generated: "2021-10-08T12:08:40.537191686Z"
