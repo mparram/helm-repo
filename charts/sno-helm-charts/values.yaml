@@ -1,0 +1,26 @@
+name: sno-helm-charts
+amqbroker:
+  namespace: factory-amq-broker
+  startingCSV: amq-broker-operator.v7.8.1-opr-3
+  brokerName: factory01-broker
+  adminPassword: qiotmanufacturingpassword
+  adminUser: qiotmanufacturing
+gitops:
+  clusterAdminController: true
+  startingCSV: openshift-gitops-operator.v1.2.1
+  initialRepository: https://github.com/qiot-project/qiot-manufacturing-factory-gitops.git
+mongo:
+  namespace: "factory-mongo"
+  path: "/mnt/hpvolumes/mongodb"
+  storageCapacity: 5Gi
+  MONGODB_ADMIN_PASSWORD: qiotmanufacturingmongoadminpass
+  MONGODB_DATABASE: qiotmongo
+  MONGODB_PASSWORD: mongopass
+  MONGODB_USER: mongouser
+postgresql:
+  namespace: factory-postgresql
+  path: "/mnt/hpvolumes/mongodb"
+  storageCapacity: 5Gi
+  POSTGRESQL_DATABASE: qiot_manufacturing
+  POSTGRESQL_PASSWORD: qiotmanufacturingpassword
+  POSTGRESQL_USER: qiotmanufacturing

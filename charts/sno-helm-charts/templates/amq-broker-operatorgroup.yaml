@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: {{ .Values.amqbroker.namespace }}
+  namespace: {{ .Values.amqbroker.namespace }}
+spec:
+  targetNamespaces:
+    - {{ .Values.amqbroker.namespace }}

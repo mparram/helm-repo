@@ -1,0 +1,51 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  name: 50-set-selinux-for-hostpath-volumes-sno
+  labels:
+    machineconfiguration.openshift.io/role: master
+spec:
+  config:
+    ignition:
+      version: 2.2.0
+    systemd:
+      units:
+        - contents: |
+            [Unit]
+            Description=Create directory for mongodb
+            Before=kubelet.service
+            [Service]
+            Type=oneshot
+            RemainAfterExit=yes
+            ExecStartPre=mkdir -p {{ .Values.mongo.path }}
+            ExecStart=chown core:core {{ .Values.mongo.path }}
+            [Install]
+            WantedBy=multi-user.target
+          enabled: true
+          name: hostpath-mongodb.service
+        - contents: |
+            [Unit]
+            Description=Create directory for PostgreSQL
+            Before=kubelet.service
+            [Service]
+            Type=oneshot
+            RemainAfterExit=yes
+            ExecStartPre=mkdir -p {{ .Values.postgresql.path }} 
+            ExecStart=chown core:core {{ .Values.postgresql.path }} 
+            [Install]
+            WantedBy=multi-user.target
+          enabled: true
+          name: hostpath-postgresql.service
+        - contents: |
+            [Unit]
+            Description=Set SELinux chcon for hostpath provisioner
+            Before=kubelet.service
+            [Service]
+            Type=oneshot
+            RemainAfterExit=yes
+            ExecStartPre=mkdir -p /mnt/hpvolumes
+            ExecStart=/usr/bin/chcon -Rt container_file_t /mnt/hpvolumes
+            [Install]
+            WantedBy=multi-user.target
+          enabled: true
+          name: hostpath-provisioner.service

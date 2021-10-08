@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgresql
+  namespace: {{ .Values.postgresql.namespace }}
+spec:
+  ports:
+    - name: postgresql
+      protocol: TCP
+      port: 5432
+      targetPort: 5432
+  selector:
+    app: postgresql
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack

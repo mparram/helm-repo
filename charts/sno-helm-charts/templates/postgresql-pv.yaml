@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgresql-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual 
+  capacity:
+    storage: {{ .Values.postgresql.storageCapacity }}
+  accessModes:
+    - ReadWriteOnce 
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: {{ .Values.postgresql.path }} 
